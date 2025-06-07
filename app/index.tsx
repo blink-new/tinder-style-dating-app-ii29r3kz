@@ -15,7 +15,7 @@ const sampleProfiles = [
     distance: '2 miles away',
     occupation: 'Photographer',
     photos: [
-      'https://images.unsplash.com/photo-1494790108755-2616b69a6c89?w=400&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1500917293891-ef795cee702c?w=400&h=600&fit=crop',
     ],
     bio: 'Adventure seeker 🌟 Love capturing moments and exploring new places. Coffee enthusiast ☕️',
   },

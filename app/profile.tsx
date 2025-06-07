@@ -3,7 +3,31 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { User, Settings, Camera, MapPin, Briefcase, GraduationCap } from 'lucide-react-native';
 
+interface UserProfile {
+  id: string;
+  name: string;
+  age: number;
+  distance: string;
+  occupation: string;
+  education: string;
+  photo: string;
+  bio: string;
+}
+
+const sampleUserProfile: UserProfile = {
+  id: 'user-1',
+  name: 'Alex',
+  age: 29,
+  distance: '3 miles away',
+  occupation: 'Software Engineer',
+  education: 'University of Washington',
+  photo: 'https://images.unsplash.com/photo-1539571696357-433388fd17ea?w=400&h=600&fit=crop',
+  bio: 'Building cool things and exploring the outdoors. Coffee lover and avid reader. Let's connect! 🚀',
+};
+
 export default function Profile() {
+  const userProfile = sampleUserProfile;
+
   return (
     <LinearGradient
       colors={['#FF6B5F', '#FF8A80', '#FFAB91']}
@@ -20,37 +44,41 @@ export default function Profile() {
         <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
           <View style={styles.profileCard}>
             <View style={styles.imageContainer}>
-              <View style={styles.imagePlaceholder}>
-                <User color="#FF6B5F" size={80} />
-              </View>
+              {userProfile.photo ? (
+                <Image source={{ uri: userProfile.photo }} style={styles.profileImage} />
+              ) : (
+                <View style={styles.imagePlaceholder}>
+                  <User color="#FF6B5F" size={80} />
+                </View>
+              )}
               <TouchableOpacity style={styles.cameraButton}>
                 <Camera color="#FFFFFF" size={16} />
               </TouchableOpacity>
             </View>
             
-            <Text style={styles.name}>Sarah, 24</Text>
+            <Text style={styles.name}>{userProfile.name}, {userProfile.age}</Text>
             
             <View style={styles.infoSection}>
               <View style={styles.infoItem}>
                 <MapPin color="#FF6B5F" size={16} />
-                <Text style={styles.infoText}>2 miles away</Text>
+                <Text style={styles.infoText}>{userProfile.distance}</Text>
               </View>
               
               <View style={styles.infoItem}>
                 <Briefcase color="#FF6B5F" size={16} />
-                <Text style={styles.infoText}>Product Designer</Text>
+                <Text style={styles.infoText}>{userProfile.occupation}</Text>
               </View>
               
               <View style={styles.infoItem}>
                 <GraduationCap color="#FF6B5F" size={16} />
-                <Text style={styles.infoText}>Stanford University</Text>
+                <Text style={styles.infoText}>{userProfile.education}</Text>
               </View>
             </View>
             
             <View style={styles.bioSection}>
               <Text style={styles.bioTitle}>About Me</Text>
               <Text style={styles.bioText}>
-                Love hiking, coffee, and good conversations. Looking for someone to explore the city with! 🌟
+                {userProfile.bio}
               </Text>
             </View>
             
@@ -106,6 +134,13 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: 20,
   },
+  profileImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    borderWidth: 3,
+    borderColor: '#FF6B5F',
+  },
   imagePlaceholder: {
     width: 120,
     height: 120,
@@ -139,7 +174,7 @@ const styles = StyleSheet.create({
   },
   infoItem: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center
     marginBottom: 12,
   },
   infoText: {
