@@ -23,7 +23,7 @@ const sampleMessageThreads: MessageThread[] = [
     id: '2',
     name: 'Sophie',
     photo: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop',
-    lastMessage: 'Let's grab coffee this week!',
+    lastMessage: "Let's grab coffee this week!",
     time: '3h ago',
   },
   {
@@ -37,7 +37,7 @@ const sampleMessageThreads: MessageThread[] = [
     id: '4',
     name: 'Mia',
     photo: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop',
-    lastMessage: 'Haha, that's hilarious!',
+    lastMessage: 'Haha, that\'s hilarious!',
     time: '2 days ago',
   },
 ];
